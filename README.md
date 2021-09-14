@@ -41,6 +41,65 @@ Experiments And Results
 
 To the experiments, we took pages on the web to generate ramdon initial states
 
+Experiments with 3-Puzzle
+-------------------
+
+Experiment N° 1 
+
+Initial state = [2,3],[1,0]
+Goal state = [1,2],[3,0]
+
+With Table difference: h1
+
+Estado N°1: [[2, 3], [1, 0]] , Estado N°2: [[2, 0], [1, 3]] , Estado N°3: [[0, 2], [1, 3]] , Estado N°4: [[1, 2], [0, 3]] , Estado N°5: [[1, 2], [3, 0]]
+
+It expanded 6 States.
+Execution time: 0.01 seg. <br>
+
+With Manhattan distances
+
+Estado N°1: [[2, 3], [1, 0]] , Estado N°2: [[2, 0], [1, 3]] , Estado N°3: [[0, 2], [1, 3]] , Estado N°4: [[1, 2], [0, 3]] , Estado N°5: [[1, 2], [3, 0]]
+
+It expanded 5 States.
+Execution time: 0.0 seg.
+
+With Inverse matrix
+
+Estado N°1: [[2, 3], [1, 0]] , Estado N°2: [[2, 0], [1, 3]] , Estado N°3: [[0, 2], [1, 3]] , Estado N°4: [[1, 2], [0, 3]] , Estado N°5: [[1, 2], [3, 0]]
+
+It expanded 8 States.
+Execution time: 0.01 seg.
+
+
+Experiment  N° 2
+
+Initial state = [1,3],[2,0]
+Goal state = [1,2],[3,0]
+
+With Table difference: h1
+
+Estado N°1: [[1, 3], [2, 0]] , Estado N°2: [[1, 0], [2, 3]] , Estado N°3: [[0, 1], [2, 3]] , Estado N°4: [[2, 1], [0, 3]] <br>
+Estado N°5: [[2, 1], [3, 0]] , Estado N°6: [[2, 0], [3, 1]] , Estado N°7: [[0, 2], [3, 1]]
+
+It expanded 13 States.
+Execution time: 0.02 seg.
+
+With Manhattan distances
+
+Estado N°1: [[1, 3], [2, 0]] , Estado N°2: [[1, 0], [2, 3]] , Estado N°3: [[0, 1], [2, 3]] , Estado N°4: [[2, 1], [0, 3]] <br>
+Estado N°5: [[2, 1], [3, 0]] , Estado N°6: [[2, 0], [3, 1]] , Estado N°7: [[0, 2], [3, 1]] 
+
+It expanded 13 States.
+Execution time: 0.01 seg.
+
+With Inverse matrix:
+
+Estado N°1: [[1, 3], [2, 0]] , Estado N°2: [[1, 0], [2, 3]] , Estado N°3: [[0, 1], [2, 3]] , Estado N°4: [[2, 1], [0, 3]] <br>
+Estado N°5: [[2, 1], [3, 0]] , Estado N°6: [[2, 0], [3, 1]] , Estado N°7: [[0, 2], [3, 1]] , Estado N°8: [[3, 2], [0, 1]]
+
+It expanded 13 States.
+Execution time: 0.01 seg.
+
 
 Experiments with 8-Puzzle
 -------------------
@@ -216,11 +275,7 @@ Experiment N° 2
 Initial state = [5,1,3,4],[2,10,6,7],[9,0,12,8],[13,15,11,15]
 Goal state = [1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]
 
-Table difference: h1
-
-Manhattan distances
-
-Inverse Matrix
+For this case, the algorithm keeps working more than 30 minutes, so we don't have a precise control.
 
 
 Experiment N° 3
@@ -228,11 +283,7 @@ Experiment N° 3
 Initial state = [5,1,3,4],[2,10,6,7],[9,0,12,8],[13,15,11,15]
 Goal state = [1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]
 
-Table difference: h1
-
-Manhattan distances
-
-Inverse Matrix
+For this case, the algorithm keeps working more than 30 minutes too, so we don't have a precise control.
 
 
 Tables of results
@@ -247,6 +298,13 @@ Tables of results
 |  N° 3    |  497  |   1.34    |    65  |    0.15    |   615  |    2.09    |
 |  TOTAL   | 1094  |   2.95    |   274  |    0.67    |  1083  |    3.40    |
 --------->
+
+|2-Puzzle  |Table Diference    | Manhattan Distance  |   Inverse matrix    |
+| :------: | :---------------: | :-----------------: | :-----------------: |
+|          |States , Time [seg]| States , Time [seg] | States , Time [seg] |
+|  N° 1    |    6  ,   0.01    |     5  ,    0.00    |     8  ,    0.01    |
+|  N° 2    |   13  ,   0.02    |    13  ,    0.01    |    13  ,    0.01    |
+|  TOTAL   |   19  ,   0.03    |    18  ,    0.01    |    21  ,    0.02    |
        
 |8-Puzzle  |Table Diference    | Manhattan Distance  |   Inverse matrix    |
 | :------: | :---------------: | :-----------------: | :-----------------: |
@@ -256,13 +314,24 @@ Tables of results
 |  N° 3    |  497  ,   1.34    |    65  ,    0.15    |   615  ,    2.09    |
 |  TOTAL   | 1094  ,   2.95    |   274  ,    0.67    |  1083  ,    3.40    |
 
+|15-Puzzle  |Table Diference    | Manhattan Distance  |   Inverse matrix    |
+| :------: | :---------------: | :-----------------: | :-----------------: |
+|          |States , Time [seg]| States , Time [seg] | States , Time [seg] |
+|  N° 1    |   27  ,   0.06    |    39  ,    0.11    |    86  ,    0.31    |
+|  N° 2    |   --  ,  +1800    |    --  ,   +1800    |    --  ,   +1800    |
+|  N° 3    |   --  ,  +1800    |    --  ,   +1800    |    --  ,   +1800    |
+|  TOTAL   |   --  ,    --     |    --  ,    --      |    --  ,    --      |
+
 
 Conclusions
 ==========================
+
+In the 3-puzzle, the algorithm is very effective in time, the second heucharist is better in time and memory, then the first heucharist is better than the third heucharist in memory, but the third heucharist is better that the first in time. 
+
 In the 8-puzzle, with the table of results, the h2(Manhattan Distance) looks like the better heucharist, with the best time and the best in memory.
-Then the third heucharist (Inverse matrix) is better than the first heucharist (Table Diference), but the first heucharist takes up less memory than the third heucharist.
+Then the third heucharist (Inverse matrix) is better than the first heucharist (Table Diference), but the first heucharist takes up less memory than the third heucharist, just like with the experiments with the 3-puzzle.
 
-
+In the 15-puzzle, the algorithms work irregularly, with a basic initial state it works even better than a 8-puzzle, but with a initial state more complex, the algorithms work for a long time. We wait for 2 hours and it keeps working, so we decided just control it like more than 30 minutes, because it was the time we made the other tests.
 
 
 Bibliography
