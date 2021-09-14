@@ -1,4 +1,4 @@
-from os import close, stat
+import os
 from tfOFNPuzzle import *
 from State import State
 from collections import deque 
@@ -8,6 +8,35 @@ def flatten(t):
     return [item for sublist in t for item in sublist]
 def cost():
     return 1
+
+def loadTxt(path, file):
+    numbers = []
+    lineaNumeros = []
+    elements = 0
+    #open the file
+    try:
+        with open(f"{path}/{file}","r") as archivo:
+            for linea in archivo:
+                #erases the jumps ("\n"), split into space and convert in numbers
+                lineaNumeros = list(map(lambda n : int(n) , linea.replace("\n","").split(" ")))
+                numbers.append(lineaNumeros)
+        elements = len(numbers)
+        #return initial and final states
+        return [numbers[i] for i in range(0,int(elements/2))], [numbers[i] for i in range(int(elements/2),elements)]
+    except:
+        print("Archivo no encontrado.")
+    return [],[]
+
+def countDiferencesOfTables(state, goalState):
+    row = len(state.table) 
+    col = row
+    count = 0
+    for r in range(row):
+        for c in range(col):
+            if (state.table[r][c] != goalState.table[r][c]):
+                count += 1
+    return count
+
 def manhattanDistance(state , goalState):
     limitRow = len(state.table)
     limitColumn = len(state.table[0])
@@ -57,10 +86,11 @@ def AStar(initialState, goalState, actions,functionH):
             succesor.f = succesor.h + succesor.g
             succesor.father = state
             if (succesor in open.queue):
-                if (succesor.g >= state in open.queue):
+                if (succesor.f >= state in open.queue):
                     continue
             open.put(succesor)
     return False, state,counter
+
 
 #res, state = AStar(State([[2,3],[1,0]]),State([[1,2],[3,0]]),["l","u","r","d"],inverseState)
 def printSequency(state):
@@ -71,6 +101,8 @@ def printSequency(state):
         print(f"Estado N°{i}:")
         print(states.pop(-1))
     
+
+
 res, state,counter = AStar(State([[5,1,3,4],[2,10,6,7],[9,0,12,8],[13,14,11,15]]),State([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]),["l","u","r","d"],inverseState)
 states = []
 printSequency(state)
@@ -82,6 +114,8 @@ print(f"Se expandio {counter} estados.")
 # https://docs.python.org/es/3/library/heapq.html
 #def __lt__ 
 # https://www.daleseo.com/python-lt-not-supported/z
+#arbol de 8 squares
+#https://deniz.co/8-puzzle-solver/
 
 
 #6058
@@ -95,6 +129,7 @@ request = False
 state = None
 counter = 0
 actions = ["l","u","r","d"]
+
 def menu():
     incise = -1
     while (incise != 0):
@@ -107,7 +142,10 @@ def menu():
         print("0. Salir.")
         incise = int(input())
         if (incise == 1):
-            continue
+            nameTxt = input()
+            initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
+            initialState = State(initialTable)
+            goalState = State(goalTable)
         elif(incise == 2):
             request, state,counter = AStar(initialState,goalState,actions, countDiferencesOfTables)
         elif(incise == 3):
@@ -119,4 +157,3 @@ def menu():
             printSequency(state)
             print(("no " if request else "") + "se hallo la ruta al objetivo.")
             print(f"Se expandio {counter} estados.")
-
