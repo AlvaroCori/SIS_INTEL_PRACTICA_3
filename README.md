@@ -318,13 +318,23 @@ Inverse Matrix
 Tables of results
 -------------------
 
-| 8-Puzzle | Table Diference   |  Manhattan Distance | Inverse matrix      |
+<!------- Tabla prototipo
+|8-Puzzle <td colspan=2>Table Diference <td colspan=2>  Manhattan Distance<td colspan=2> Inverse matrix |
 | -------- | ----------------- | ------------------- | ------------------- |
 |          |States | Time [seg]| States | Time [seg] | States | Time [seg] |
 |  N° 1    |  554  |   1.53    |   180  |    0.47    |   429  |    1.24    |
 |  N° 2    |   43  |   0.07    |    29  |    0.05    |    39  |    0.07    |
 |  N° 3    |  497  |   1.34    |    65  |    0.15    |   615  |    2.09    |
 |  TOTAL   | 1094  |   2.95    |   274  |    0.67    |  1083  |    3.40    |
+--------->
+       
+|8-Puzzle  |Table Diference    | Manhattan Distance  |   Inverse matrix    |
+| :------: | :---------------: | :-----------------: | :-----------------: |
+|          |States , Time [seg]| States , Time [seg] | States , Time [seg] |
+|  N° 1    |  554  ,   1.53    |   180  ,    0.47    |   429  ,    1.24    |
+|  N° 2    |   43  ,   0.07    |    29  ,    0.05    |    39  ,    0.07    |
+|  N° 3    |  497  ,   1.34    |    65  ,    0.15    |   615  ,    2.09    |
+|  TOTAL   | 1094  ,   2.95    |   274  ,    0.67    |  1083  ,    3.40    |
 
 
 Conclusions
@@ -334,9 +344,9 @@ Then the third heucharist (Inverse matrix) is better than the first heucharist (
 
 
 
---------------------------
+
 Bibliography
---------------------------
+==========================
        Queue (priorityQueue)
 https://docs.python.org/3/library/queue.html
 
