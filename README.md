@@ -1,11 +1,18 @@
 # SIS_INTEL_PRACTICA_3
 Practica 3 de Sistemas Inteligentes A Star.
 
+--------------------------
 Description Of Problem
+--------------------------
+
 The 8 puzzle is a game invented in 1874 by Noyes Palmer Chapmen base in a table of 3x3 cells equals in size with 8 pieces and a free space. The objective of the game is moving the pieces in the free space (at the left, at the up, at the right and at the down) for get an order that form a sequence of number or more popularity the numbers are replaced for an imagen.
 The complexity also can have a minor or mayor size if we take a table of 2x2 or a table of 4x4 with 3 pieces and 15 pieces in that sequence, the movements that are required can be of a singular number of attempts until a centesimal number of attempts.
 The initial state can derive in more states that have other states of transition. If we don’t get states that we already took the space of states is finite and we can approximate at many solutions without go at a deep sequency but we need to take an algorithm.
+
+--------------------------
 Description Of Solution
+--------------------------
+
 The solution of the algorithm is various previously we implemented the Breadth First Search BFS and the iterative deepening (ID) in this practice we will resolve with the algorithm Star A that belong at the conjunct of informed search algorithm, the Star A use heuristic functions to take a path toward the goal.
 Heuristic Function
 A heuristic function is a function of estimation that determine what node the program should take. The function evaluates a state in order to the less or greater weight be a candidate to take the next step.
@@ -27,8 +34,16 @@ hˆ 3(n). – Sum of the inverse permutations. Consist in applanate the matrix o
 Python
 We use the language Python because this language have a large collection of util libraries, In this exercise a clarity preference in order to use Python is the pass of parameters for Functions because we are pass the heuristic function like a variable.
 Python also is a language applicable and recommendable for the Intelligence Artificial because the syntax helps much in the development.
+
+--------------------------
 Experiments And Results
+--------------------------
+
+To the experiments, we took pages on the web to generate ramdon initial states
+
+-------------------
 Experiments with 8-Puzzle
+-------------------
 
 Experiment N° 1 
 Initial state = [3,2,5],[4,8,1],[0,7,6]
@@ -100,6 +115,7 @@ State N°17: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 It expanded 429 States.
 Execution time: 1.24 seg.
 
+
 Experiment  N° 2
 Initial state = [4,1,3],[8,0,5],[2,7,6]
 Goal state = [1,2,3],[4,5,6],[7,8,0]
@@ -150,6 +166,7 @@ State N°11: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 
 It expanded 39 States.
 Execution time: 0.07 seg.
+
 
 Experiment  N° 3
 Initial state = [7,2,0],[5,1,4],[8,6,3]
@@ -223,8 +240,9 @@ State N°19: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 It expanded 615 States.
 Execution time: 2.09 seg.
 
-
+-------------------
 Experiments with 15-Puzzle
+-------------------
 
 Experiment N° 1 
 Initial state = [5,1,3,4],[2,10,6,7],[9,0,12,8],[13,15,11,15]
@@ -296,8 +314,28 @@ Manhattan distances
 
 Inverse Matrix
 
+-------------------
+Tables of results
+-------------------
+
+8-Puzzle   Table Diference     Manhattan Distance  Inverse matrix
+          States  Time [seg]   States  Time [seg]  States  Time [seg]
+  N° 1      554      1.53        180      0.47       429     1.24 
+  N° 2       43      0.07         29      0.05        39     0.07
+  N° 3      497      1.34         65      0.15       615     2.09
+  TOTAL    1094      2.95        274      0.67      1083     3.40
+
+--------------------------
 Conclusions
+--------------------------
+In the 8-puzzle, with the table of results, the h2(Manhattan Distance) looks like the better heucharist, with the best time and the best in memory.
+Then the third heucharist (Inverse matrix) is better than the first heucharist (Table Diference), but the first heucharist takes up less memory than the third heucharist.
+
+
+
+--------------------------
 Bibliography
+--------------------------
        Queue (priorityQueue)
 https://docs.python.org/3/library/queue.html
 
