@@ -79,8 +79,10 @@ def AStar(initialState, goalState, actions,functionH):
             succesor.g = state.g + cost()
             succesor.f = succesor.h + succesor.g
             succesor.father = state
-            if (succesor in open.queue):
-                if (succesor.g >= state.g in open.queue.g):
+            tables = list(map(lambda x: x.table ,open.queue))
+            if (succesor.table in tables):
+                index = tables.index(succesor.table)
+                if (succesor.g >= open.queue[index].g):
                     continue
             open.put(succesor)
     return False, state,counter
