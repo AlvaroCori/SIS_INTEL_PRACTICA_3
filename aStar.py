@@ -1,33 +1,17 @@
-import os
 from tfOFNPuzzle import *
 from State import State
-from collections import deque 
-import queue
-import time
+from queue import PriorityQueue
+
+#Flatten the table
 def flatten(t):
     return [item for sublist in t for item in sublist]
+
+#Return the cost of transiction for levels
 def cost():
     return 1
 
-def loadTxt(path, file):
-    numbers = []
-    lineaNumeros = []
-    elements = 0
-    #open the file
-    try:
-        with open(f"{path}/{file}","r") as archivo:
-            for linea in archivo:
-                #erases the jumps ("\n"), split into space and convert in numbers
-                lineaNumeros = list(map(lambda n : int(n) , linea.replace("\n","").split(" ")))
-                numbers.append(lineaNumeros)
-        elements = len(numbers)
-        #return initial and final states
-        return [numbers[i] for i in range(0,int(elements/2))], [numbers[i] for i in range(int(elements/2),elements)]
-    except:
-        print("Archivo no encontrado.")
-    return [],[]
-
-def countDiferencesOfTables(state, goalState):
+#H1: count the pieces out of place from state to goalstate
+def piecesOutOfPlace(state, goalState):
     row = len(state.table) 
     col = row
     count = 0
@@ -37,6 +21,7 @@ def countDiferencesOfTables(state, goalState):
                 count += 1
     return count
 
+#H2: count all mahattan distance of every state pieces
 def manhattanDistance(state , goalState):
     limitRow = len(state.table)
     limitColumn = len(state.table[0])
@@ -46,7 +31,9 @@ def manhattanDistance(state , goalState):
             r,c = findElement(goalState, state.table[row][col])
             distance += abs(row-r)+abs(col-c)
     return distance
-def inverseState(state, goalstate):
+
+#H3: Count every inverse permutation of state pieces
+def inversePermutation(state, goalstate):
     weight = 0
     index = 0
     elements = flatten(state.table)
@@ -54,6 +41,7 @@ def inverseState(state, goalstate):
     for element in elements:
         position = index + 1
         numberWeight = 0
+        #Compare and count if the piece is mayor at the rest
         while (position < limit - 1):
             if (element > elements[position]):
                 numberWeight += 1
@@ -61,66 +49,54 @@ def inverseState(state, goalstate):
         weight += numberWeight
         index = index + 1
     return weight
-
-
+'''
+The algoritm AStar
+initialState: is the first state
+goalState: is the final state searched
+actions: are the movements that we can realize in the puzzles
+functionH: is the heuristic function passed by parameters 
+'''
 def AStar(initialState, goalState, actions,functionH):
-    open = queue.PriorityQueue()
+    open = PriorityQueue()
     initialState.f = 0
     open.put(initialState)
     closed = []
     counter = 0
     while(open.qsize()!=0):
         state = open.get()
+
         counter += 1
-        closed.append(state)
+        closed.append(state.table)
         if (goalTest(state, goalState)):
             return True, state, counter
         for action in actions:
             if (evaluateAction(state, action) == False):
                 continue
             succesor = TF(state, action)
-            if (succesor in closed):
+            if (succesor.table in closed):
                 continue
             succesor.h = functionH(succesor,goalState)
             succesor.g = state.g + cost()
             succesor.f = succesor.h + succesor.g
             succesor.father = state
             if (succesor in open.queue):
-                if (succesor.f >= state in open.queue):
+                if (succesor.g >= state.g in open.queue.g):
                     continue
             open.put(succesor)
     return False, state,counter
 
 
-#res, state = AStar(State([[2,3],[1,0]]),State([[1,2],[3,0]]),["l","u","r","d"],inverseState)
-def printSequency(state):
-    while (state != None):
-        states.append(state.table)
-        state = state.father
-    for i in range(1,len(states)+1):
-        print(f"Estado N°{i}:")
-        print(states.pop(-1))
+
+
     
 
 
-res, state,counter = AStar(State([[5,1,3,4],[2,10,6,7],[9,0,12,8],[13,14,11,15]]),State([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]),["l","u","r","d"],inverseState)
-states = []
-printSequency(state)
-
-print(f"Se expandio {counter} estados.")
 
 
-# hea
-# https://docs.python.org/es/3/library/heapq.html
-#def __lt__ 
-# https://www.daleseo.com/python-lt-not-supported/z
-#arbol de 8 squares
-#https://deniz.co/8-puzzle-solver/
 
 
-#6058
-#171
-#27
+
+
 table1 = [[5,1,3,4],[2,10,6,7],[9,0,12,8],[13,14,11,15]]
 table2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]
 initialState = State(table1)
@@ -130,30 +106,3 @@ state = None
 counter = 0
 actions = ["l","u","r","d"]
 
-def menu():
-    incise = -1
-    while (incise != 0):
-        print("MENU DE A STAR")
-        print("-------------------------------------")
-        print("1. Ingresar documento de texto y cargar.")
-        print("2. Resolver con diferencia de tablas.")
-        print("3. Resolver con distancia Manhattan.")
-        print("4. Resolver con matriz inversa.")
-        print("0. Salir.")
-        incise = int(input())
-        if (incise == 1):
-            nameTxt = input()
-            initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
-            initialState = State(initialTable)
-            goalState = State(goalTable)
-        elif(incise == 2):
-            request, state,counter = AStar(initialState,goalState,actions, countDiferencesOfTables)
-        elif(incise == 3):
-            request, state,counter = AStar(initialState,goalState,actions, manhattanDistance)
-        elif(incise == 4):
-            request, state,counter = AStar(initialState,goalState,actions, inverseState)
-        if (incise >= 2 and incise <= 4):
-            print("RESULTADOS:")
-            printSequency(state)
-            print(("no " if request else "") + "se hallo la ruta al objetivo.")
-            print(f"Se expandio {counter} estados.")

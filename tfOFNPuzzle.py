@@ -1,20 +1,5 @@
+#This Library contain functions for implement the n-puzzle
 import copy
-def countDiferencesOfTables(state, goalState):
-    row = len(state.table) 
-    col = row
-    count = 0
-    for r in range(row):
-        for c in range(col):
-            if (state.table[r][c] != goalState.table[r][c]):
-                count += 1
-    return count
-def countParents(state):
-    count = 0
-    while (state!= None):
-        count += 1
-        state = state.father
-    return count
-
 #Search the element n and return the position
 def findElement(state,n):
     rows = len(state.table)
@@ -40,10 +25,6 @@ def goalTest(state, goalState):
             if (state.table[row][col] != goalState.table[row][col]):
                 return False
     return True
-
-def functionL(state, goalState):
-    return countDiferencesOfTables(state, goalState) + countParents(state)
-
 
 def evaluateAction(state, action):
     row, col = findElement(state, 0)
@@ -85,15 +66,3 @@ def TF(state, action):
         swap(newState,row,col,row+1,col)
     return newState
 
-#evaluate if a father have the same state (evit the repeat states).
-def evaluateRepeatState(state):
-    actual = state
-    walker = state.father
-    while (walker != None):
-        if (goalTest(actual,walker)):
-            return False
-        walker = walker.father
-    return True
-def insertSuccessors(states, newStates,goalState):
-    for s in newStates:
-        states.insert([functionL(s, goalState),s])
