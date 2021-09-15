@@ -94,17 +94,3 @@ def AStar(initialState, goalState, actions,functionH):
 
 
 
-
-
-
-
-
-table1 = [[5,1,3,4],[2,10,6,7],[9,0,12,8],[13,14,11,15]]
-table2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]]
-initialState = State(table1)
-goalState = State(table2)
-request = False
-state = None
-counter = 0
-actions = ["l","u","r","d"]
-

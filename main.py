@@ -34,7 +34,8 @@ def printSequency(state):
         print(states.pop(-1))
 
 def menu():
-    nameTxt = "15_pieces/case1.txt"
+    actions = ["l","u","r","d"]
+    nameTxt = "15_pieces/case7.txt"
     initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
     initialState = State(initialTable)
     goalState = State(goalTable)
@@ -72,3 +73,7 @@ def menu():
         input("presione enter para continuar.")
 
 menu()
+
+'''
+case 4
+'''
