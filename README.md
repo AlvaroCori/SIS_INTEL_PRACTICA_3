@@ -43,7 +43,7 @@ To the experiments, we took pages on the web to generate ramdon initial states
 
 Experiments with 3-Puzzle
 -------------------
-
+The 3-Puzzle is easy to implement, we only see 2 cases because we can see the 
 Experiment N° 1 
 
 Initial state = [2,3],[1,0]
@@ -224,7 +224,6 @@ State N°19: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 It expanded 615 States.
 Execution time: 2.09 seg.
 
-
 Experiments with 15-Puzzle
 -------------------
 
@@ -285,6 +284,56 @@ Goal state = [1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]
 
 For this case, the algorithm keeps working more than 30 minutes too, so we don't have a precise control.
 
+We can see more cases of 15-puzzle tests.
+We also discovered cases where the 15 puzzle took more time to find the way depending the algorithm.
+
+Experiment N° 4
+
+With Table difference: h1:
+Estado N°1: [[5, 0, 6, 3], [2, 1, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°2: [[5, 1, 6, 3], [2, 0, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°3: [[5, 1, 6, 3], [0, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°4: [[0, 1, 6, 3], [5, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°5: [[1, 0, 6, 3], [5, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°6: [[1, 2, 6, 3], [5, 0, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°7: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 0, 7, 12], [13, 14, 11, 15]] , Estado N°8: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°9: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 12, 0], [13, 14, 11, 15]] , Estado N°10: [[1, 2, 6, 3], [5, 10, 4, 0], [9, 7, 12, 8], [13, 14, 11, 15]] <br>
+Estado N°11: [[1, 2, 6, 3], [5, 10, 0, 4], [9, 7, 12, 8], [13, 14, 11, 15]] , Estado N°12: [[1, 2, 0, 3], [5, 10, 6, 4], [9, 7, 12, 8], [13, 14, 11, 15]] <br>
+Estado N°13: [[1, 2, 3, 0], [5, 10, 6, 4], [9, 7, 12, 8], [13, 14, 11, 15]] , Estado N°14: [[1, 2, 3, 4], [5, 10, 6, 0], [9, 7, 12, 8], [13, 14, 11, 15]] <br>
+Estado N°15: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 7, 12, 0], [13, 14, 11, 15]] , Estado N°16: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 7, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°17: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 0, 7, 12], [13, 14, 11, 15]] , Estado N°18: [[1, 2, 3, 4], [5, 0, 6, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°19: [[1, 2, 3, 4], [5, 6, 0, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°20: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°21: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 0, 15]] , Estado N°22: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]] <br>
+It expanded  7413 States.
+Execution time: 62.23 seg.
+
+With Manhattan distances:
+Estado N°1: [[5, 0, 6, 3], [2, 1, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°2: [[5, 1, 6, 3], [2, 0, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°3: [[5, 1, 6, 3], [0, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°4: [[0, 1, 6, 3], [5, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°5: [[1, 0, 6, 3], [5, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°6: [[1, 2, 6, 3], [5, 0, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°7: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 0, 7, 12], [13, 14, 11, 15]] , Estado N°8: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°9: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 12, 0], [13, 14, 11, 15]] , Estado N°10: [[1, 2, 6, 3], [5, 10, 4, 0], [9, 7, 12, 8], [13, 14, 11, 15]] <br>
+Estado N°11: [[1, 2, 6, 3], [5, 10, 0, 4], [9, 7, 12, 8], [13, 14, 11, 15]] , Estado N°12: [[1, 2, 0, 3], [5, 10, 6, 4], [9, 7, 12, 8], [13, 14, 11, 15]] <br>
+Estado N°13: [[1, 2, 3, 0], [5, 10, 6, 4], [9, 7, 12, 8], [13, 14, 11, 15]] , Estado N°14: [[1, 2, 3, 4], [5, 10, 6, 0], [9, 7, 12, 8], [13, 14, 11, 15]] <br>
+Estado N°15: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 7, 12, 0], [13, 14, 11, 15]] , Estado N°16: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 7, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°17: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 0, 7, 12], [13, 14, 11, 15]] , Estado N°18: [[1, 2, 3, 4], [5, 0, 6, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°19: [[1, 2, 3, 4], [5, 6, 0, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°20: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°21: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 0, 15]] , Estado N°22: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]] <br>
+It expanded  2054 States.
+Execution time: 4.76 seg.
+
+With Inverse matrix:
+Estado N°1: [[5, 0, 6, 3], [2, 1, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°2: [[5, 1, 6, 3], [2, 0, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°3: [[5, 1, 6, 3], [0, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°4: [[0, 1, 6, 3], [5, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°5: [[1, 0, 6, 3], [5, 2, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] , Estado N°6: [[1, 2, 6, 3], [5, 0, 4, 8], [9, 10, 7, 12], [13, 14, 11, 15]] <br>
+Estado N°7: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 0, 7, 12], [13, 14, 11, 15]] , Estado N°8: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 0, 12], [13, 14, 11, 15]] <br>
+Estado N°9: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 11, 12], [13, 14, 0, 15]] , Estado N°10: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 11, 12], [13, 14, 15, 0]] <br>
+Estado N°11: [[1, 2, 6, 3], [5, 10, 4, 8], [9, 7, 11, 0], [13, 14, 15, 12]] , Estado N°12: [[1, 2, 6, 3], [5, 10, 4, 0], [9, 7, 11, 8], [13, 14, 15, 12]] <br>
+Estado N°13: [[1, 2, 6, 3], [5, 10, 0, 4], [9, 7, 11, 8], [13, 14, 15, 12]] , Estado N°14: [[1, 2, 0, 3], [5, 10, 6, 4], [9, 7, 11, 8], [13, 14, 15, 12]] <br>
+Estado N°15: [[1, 2, 3, 0], [5, 10, 6, 4], [9, 7, 11, 8], [13, 14, 15, 12]] , Estado N°16: [[1, 2, 3, 4], [5, 10, 6, 0], [9, 7, 11, 8], [13, 14, 15, 12]] <br>
+Estado N°17: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 7, 11, 0], [13, 14, 15, 12]] , Estado N°18: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 7, 0, 11], [13, 14, 15, 12]] <br>
+Estado N°19: [[1, 2, 3, 4], [5, 10, 6, 8], [9, 0, 7, 11], [13, 14, 15, 12]] , Estado N°20: [[1, 2, 3, 4], [5, 0, 6, 8], [9, 10, 7, 11], [13, 14, 15, 12]] <br>
+Estado N°21: [[1, 2, 3, 4], [5, 6, 0, 8], [9, 10, 7, 11], [13, 14, 15, 12]] , Estado N°22: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 0, 11], [13, 14, 15, 12]] <br>
+Estado N°23: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 0], [13, 14, 15, 12]] , Estado N°24: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]] <br>
+It expanded  7358 States.
+Execution time: 54,67 seg.
 
 Tables of results
 -------------------
@@ -320,23 +369,30 @@ Tables of results
 |  N° 1    |   27  ,   0.06    |    39  ,    0.11    |    86  ,    0.31    |
 |  N° 2    |   --  ,  +1800    |    --  ,   +1800    |    --  ,   +1800    |
 |  N° 3    |   --  ,  +1800    |    --  ,   +1800    |    --  ,   +1800    |
-|  TOTAL   |   --  ,    --     |    --  ,    --      |    --  ,    --      |
+|  N° 4    |   387  ,  0.47    |    461  ,   0.53    |    2620  ,   7.33    |
+|  N° 5    |   156  ,  0.11    |    100  ,   0.09    |    211  ,   0.19    |
+|  N° 6    |   115  ,  0.08    |    210  ,   0.21    |    306  ,   0.35    |
+|  N° 7    |   7358  ,  54.67    |    2054  ,   4.76    |    7413  ,   62.23    |
+|  TOTAL   |   8043  ,    55.39     |    2864  ,    5.7      |    10630  ,    70.41      |
 
+
+(We only sum the knowed cases in the table of 15-puzzle)
 
 Conclusions
 ==========================
 
-In the 3-puzzle, the algorithm is very effective in time, the second heucharist is better in time and memory, then the first heucharist is better than the third heucharist in memory, but the third heucharist is better that the first in time. 
+In the 3-puzzle, the algorithm is very effective in time, the second heucharist is better in time and memory, then the first heucharist is better than the third heucharist in memory, but the third heucharist is better that the first in time. We only use two cases because is a early test of the program behavior.
 
 In the 8-puzzle, with the table of results, the h2(Manhattan Distance) looks like the better heucharist, with the best time and the best in memory.
 Then the third heucharist (Inverse matrix) is better than the first heucharist (Table Diference), but the first heucharist takes up less memory than the third heucharist, just like with the experiments with the 3-puzzle.
 
 In the 15-puzzle, the algorithms work irregularly, with a basic initial state it works even better than a 8-puzzle, but with a initial state more complex, the algorithms work for a long time. We wait for 2 hours and it keeps working, so we decided just control it like more than 30 minutes, because it was the time we made the other tests.
 
+Despite the long search time, if we add the cases we know their results we can compare that as well as the total states as the total time, the most effective heuristic is the distance Manhattan followed by the differences of pieces being the worst the inverse matrix.
 
 Bibliography
 ==========================
-       Queue (priorityQueue)
+Queue (priorityQueue)
 https://docs.python.org/3/library/queue.html
 
 Function (__lt__) use for priorityQueue:
@@ -350,13 +406,6 @@ https://www.delftstack.com/es/howto/python/python-get-path/
 
 Open input from file txt: 
 https://decodigo.com/python-leer-un-archivo-de-texto
+
 Visual and solver tree for 8-puzzle:
 https://deniz.co/8-puzzle-solver/
-
-
-
-1.	Descripción del problema: se describe qué problema se está queriendo resolver a nivel general.
-2.	Descripción de la solución: se describe qué algoritmo se está utilizando, se justifica su elección y se detalla cómo se utiliza dicho algoritmo para resolver el problema.
-3.	Experimentos y resultados: los experimentos que tienen que ser hechos estarán descritos en el documento del laboratorio; pero cualquier experimento adicional que el estudiante realice será bien recibido. Los resultados tienen que ser argumentados. 
-4.	Conclusiones: basándose en las evidencias obtenidas de los resultados, el estudiante debe llegar a una conclusión.
-5.	Bibliografía: todo material externo (enlaces de internet, tutoriales, libros, videos de YouTube, etc.) a la clase que se utilice para responder con el laboratorio tendrá que ser citado. Toda referencia sin citación será considerada plagio y el laboratorio será anulado. 
