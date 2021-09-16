@@ -1,6 +1,9 @@
 # SIS_INTEL_PRACTICA_3
 Practica 3 de Sistemas Inteligentes A Star.
 
+Alvaro Bryan Cori Sanchez <br>
+Omar Christian Arias Chavez
+
 
 Description Of Problem
 ==========================
@@ -335,6 +338,41 @@ Estado N°23: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 0], [13, 14, 15, 12]] , E
 It expanded  7358 States.
 Execution time: 54,67 seg.
 
+Experiments with the new heucaristic
+-------------------
+
+Experiment N°1
+
+Estado N°1: [[4, 1, 3], [8, 0, 5], [2, 7, 6]] , Estado N°2: [[4, 1, 3], [0, 8, 5], [2, 7, 6]] , Estado N°3: [[4, 1, 3], [2, 8, 5], [0, 7, 6]] <br>
+Estado N°4: [[4, 1, 3], [2, 8, 5], [7, 0, 6]] , Estado N°5: [[4, 1, 3], [2, 0, 5], [7, 8, 6]] , Estado N°6: [[4, 1, 3], [0, 2, 5], [7, 8, 6]] <br>
+Estado N°7: [[0, 1, 3], [4, 2, 5], [7, 8, 6]] , Estado N°8: [[1, 0, 3], [4, 2, 5], [7, 8, 6]] , Estado N°9: [[1, 2, 3], [4, 0, 5], [7, 8, 6]] <br>
+Estado N°10: [[1, 2, 3], [4, 5, 0], [7, 8, 6]] , Estado N°11: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+It expanded  18 States.
+Execution time: 0.03 seg.
+
+Experiment n
+
+Estado N°1: [[4, 1, 3], [8, 0, 5], [2, 7, 6]] , Estado N°2: [[4, 1, 3], [0, 8, 5], [2, 7, 6]] , Estado N°3: [[4, 1, 3], [2, 8, 5], [0, 7, 6]] <br>
+Estado N°4: [[4, 1, 3], [2, 8, 5], [7, 0, 6]] , Estado N°5: [[4, 1, 3], [2, 0, 5], [7, 8, 6]] , Estado N°6: [[4, 1, 3], [0, 2, 5], [7, 8, 6]] <br>
+Estado N°7: [[0, 1, 3], [4, 2, 5], [7, 8, 6]] , Estado N°8: [[1, 0, 3], [4, 2, 5], [7, 8, 6]] , Estado N°9: [[1, 2, 3], [4, 0, 5], [7, 8, 6]] <br>
+Estado N°10: [[1, 2, 3], [4, 5, 0], [7, 8, 6]] , Estado N°11: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+It expanded  18 States.
+Execution time: 0.05 seg.
+
+Estado N°1: [[7, 2, 0], [5, 1, 4], [8, 6, 3]] , Estado N°2: [[7, 0, 2], [5, 1, 4], [8, 6, 3]] , Estado N°3: [[7, 1, 2], [5, 0, 4], [8, 6, 3]] <br>
+Estado N°4: [[7, 1, 2], [0, 5, 4], [8, 6, 3]] , Estado N°5: [[0, 1, 2], [7, 5, 4], [8, 6, 3]] , Estado N°6: [[1, 0, 2], [7, 5, 4], [8, 6, 3]] <br>
+Estado N°7: [[1, 2, 0], [7, 5, 4], [8, 6, 3]] , Estado N°8: [[1, 2, 4], [7, 5, 0], [8, 6, 3]] , Estado N°9: [[1, 2, 4], [7, 5, 3], [8, 6, 0]] <br>
+Estado N°10: [[1, 2, 4], [7, 5, 3], [8, 0, 6]] , Estado N°11: [[1, 2, 4], [7, 5, 3], [0, 8, 6]] , Estado N°12: [[1, 2, 4], [0, 5, 3], [7, 8, 6]] <br>
+Estado N°13: [[0, 2, 4], [1, 5, 3], [7, 8, 6]] , Estado N°14: [[2, 0, 4], [1, 5, 3], [7, 8, 6]] , Estado N°15: [[2, 4, 0], [1, 5, 3], [7, 8, 6]] <br>
+Estado N°16: [[2, 4, 3], [1, 5, 0], [7, 8, 6]] , Estado N°17: [[2, 4, 3], [1, 0, 5], [7, 8, 6]] , Estado N°18: [[2, 0, 3], [1, 4, 5], [7, 8, 6]] <br>
+Estado N°19: [[0, 2, 3], [1, 4, 5], [7, 8, 6]] , Estado N°20: [[1, 2, 3], [0, 4, 5], [7, 8, 6]] , Estado N°21: [[1, 2, 3], [4, 0, 5], [7, 8, 6]] <br>
+Estado N°22: [[1, 2, 3], [4, 5, 0], [7, 8, 6]] , Estado N°23: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+It expanded  992 States.
+Execution time: 7.46 seg.
+
 Tables of results
 -------------------
 
@@ -378,6 +416,19 @@ Tables of results
 
 (We only sum the knowed cases in the table of 15-puzzle)
 
+With the new heucaristic
+-------------------
+
+|8-Puzzle  | Difference of squares    |
+| :------: | :---------------: |
+|          |States , Time [seg]|
+|  N° 1    |   18  ,   0.03    |
+|  N° 2    |   18  ,   0.05    | 
+|  N° 3    |  992  ,   7.46    | 
+|  TOTAL   | 1028  ,   7.54    | 
+
+
+
 Conclusions
 ==========================
 
@@ -389,6 +440,12 @@ Then the third heucharist (Inverse matrix) is better than the first heucharist (
 In the 15-puzzle, the algorithms work irregularly, with a basic initial state it works even better than a 8-puzzle, but with a initial state more complex, the algorithms work for a long time. We wait for 2 hours and it keeps working, so we decided just control it like more than 30 minutes, because it was the time we made the other tests.
 
 Despite the long search time, if we add the cases we know their results we can compare that as well as the total states as the total time, the most effective heuristic is the distance Manhattan followed by the differences of pieces being the worst the inverse matrix.
+
+The experiments with the new heucaristic, looks better for the first and the second case, but looks worse for the thrid case. So it can be a better solution for simple cases, but it's not so good for complex cases. 
+
+Concluding, the A* with the tested heucaristics is not always optimum for get the shortest way, for example, the thrid heucaristic takes up a lot of memory, but the first heucaristic show good results in time but the better heucaristic, is the second. However, when the states are very complex, the algorithms are slow and it doesn't always find the answer.
+
+With the new heucaristic, look a little better for simple cases, but it look worse for complex cases.
 
 Bibliography
 ==========================
@@ -409,3 +466,7 @@ https://decodigo.com/python-leer-un-archivo-de-texto
 
 Visual and solver tree for 8-puzzle:
 https://deniz.co/8-puzzle-solver/
+
+Solver and generator for 15-puzzle:
+https://www.jaapsch.net/puzzles/javascript/fifteenj.htm
+
