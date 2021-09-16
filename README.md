@@ -1,7 +1,7 @@
 # SIS_INTEL_PRACTICA_3
 Practica 3 de Sistemas Inteligentes A Star.
 
-Alvaro Bryan Cori Sanchez
+Alvaro Bryan Cori Sanchez <br>
 Omar Christian Arias Chavez
 
 
