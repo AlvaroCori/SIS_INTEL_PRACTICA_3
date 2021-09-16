@@ -35,7 +35,7 @@ def printSequency(state):
 
 def menu():
     actions = ["l","u","r","d"]
-    nameTxt = "15_pieces/case7.txt"
+    nameTxt = "8_pieces/case3.txt"
     initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
     initialState = State(initialTable)
     goalState = State(goalTable)
@@ -48,6 +48,7 @@ def menu():
         print("2. Resolver con diferencia de tablas.")
         print("3. Resolver con distancia Manhattan.")
         print("4. Resolver con matriz inversa.")
+        print("5. Resolver con diferencia de casillas.")
         print("0. Salir.")
         incise = int(input())
         if (incise == 1):
@@ -61,7 +62,9 @@ def menu():
             functionH = manhattanDistance
         elif(incise == 4):
             functionH = inversePermutation
-        if (incise >= 2 and incise <= 4):
+        elif(incise == 5):
+            functionH = diferenciaDeCasillas
+        if (incise >= 2 and incise <= 5):
             init = time.time()
             request, state,counter = AStar(initialState,goalState,actions, functionH)
             end = time.time()

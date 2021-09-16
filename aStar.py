@@ -49,6 +49,17 @@ def inversePermutation(state, goalstate):
         weight += numberWeight
         index = index + 1
     return weight
+
+
+def diferenciaDeCasillas(state, goalState):
+    rows = len(state.table)
+    columns = len(state.table[0])
+    weight = 0
+    for i in range(rows):
+        for j in range(columns):
+            weight += abs(state.table[i][j] - goalState.table[i][j])
+    return weight
+
 '''
 The algoritm AStar
 initialState: is the first state
