@@ -34,6 +34,7 @@ We will implement 3 different heuristics functions:
 hˆ 1(n). - Number of pieces out of place relative to the target state, count the difference in the pieces of a state and the goal state.
 hˆ 2(n). – Sum the Manhattan distance. For every piece count the vertical and horizontal distance comparing the initial state and the goal state.
 hˆ 3(n). – Sum of the inverse permutations. Consist in applanate the matrix or table to a vector, and for every piece compare and count the smaller numbers to which we leave, only we can use this function if the goal state has an order.
+Beans . - We will implement a heuristic function that we call diference of pieces, the function sum the absolute differences between the current state boxes and the target state boxes. For example abs(currentS(1,1) - goalS(1,1))+abs(currentS(2,1) - goalS(2,1))+...+abs(currentS(n,n) - goalS(n,n)).
 Python
 We use the language Python because this language have a large collection of util libraries, In this exercise a clarity preference in order to use Python is the pass of parameters for Functions because we are pass the heuristic function like a variable.
 Python also is a language applicable and recommendable for the Intelligence Artificial because the syntax helps much in the development.
@@ -415,19 +416,34 @@ Tables of results
 
 
 (We only sum the knowed cases in the table of 15-puzzle)
-
+## Beans
 With the new heucaristic
 -------------------
+The new algorithm that we implemented realized the next results:
+### 8-Puzzle
 
-|8-Puzzle  | Difference of squares    |
-| :------: | :---------------: |
-|          |States , Time [seg]|
-|  N° 1    |   18  ,   0.03    |
-|  N° 2    |   18  ,   0.05    | 
-|  N° 3    |  992  ,   7.46    | 
-|  TOTAL   | 1028  ,   7.54    | 
+|  Case    |States    | Time [seg] | States for path   |
+| :------: | :------: | :--------: | :------------:    |
+|  N° 1    |    18    |   0.03     |        17         |
+|  N° 2    |    18    |   0.05     |        11         | 
+|  N° 3    |   992    |   1.37     |        23         | 
+|  TOTAL   |  1028    |   1.45     |        51         | 
 
 
+### 15-Puzzle                  
+
+| Case        |  States  | Time [seg] | States for path |
+| :------:    | :------: | :--------: | :------------:  |
+|  N° 1       |   25     |    0.04    |       12        |
+|  N° 2       |   --     |   ----     |       --        |
+|  N° 3       |   --     |   ----     |       --        |
+|  N° 4       |   250    |   0.35     |       22        | 
+|  N° 5       |  31      |   0.05     |       18        | 
+|  N° 6       |  331     |   7.49     |       16        | 
+|  N° 7       |  1931    |   4.56     |       24        | 
+|  TOTAL      |  2568    |   12.49    |       92        | 
+
+(We only sum the knowed cases in the table of 15-puzzle)
 
 Conclusions
 ==========================
@@ -445,7 +461,8 @@ The experiments with the new heucaristic, looks better for the first and the sec
 
 Concluding, the A* with the tested heucaristics is not always optimum for get the shortest way, for example, the thrid heucaristic takes up a lot of memory, but the first heucaristic show good results in time but the better heucaristic, is the second. However, when the states are very complex, the algorithms are slow and it doesn't always find the answer.
 
-With the new heucaristic, look a little better for simple cases, but it look worse for complex cases.
+Beans .- With the new heucaristic, look a little better for simple cases, but it take a long time for complex cases example case 2 and 3 of 15-puzzle, the algoritmh is better than the inverse permutations and the number of pieces out of place but is lower than the Manhattan distance, the algorithm is moderately better to be implemented. 
+
 
 Bibliography
 ==========================
