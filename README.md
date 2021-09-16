@@ -9,6 +9,7 @@ Description Of Problem
 ==========================
 
 The 8 puzzle is a game invented in 1874 by Noyes Palmer Chapmen base in a table of 3x3 cells equals in size with 8 pieces and a free space. The objective of the game is moving the pieces in the free space (at the left, at the up, at the right and at the down) for get an order that form a sequence of number or more popularity the numbers are replaced for an imagen.
+
 The complexity also can have a minor or mayor size if we take a table of 2x2 or a table of 4x4 with 3 pieces and 15 pieces in that sequence, the movements that are required can be of a singular number of attempts until a centesimal number of attempts.
 The initial state can derive in more states that have other states of transition. If we don’t get states that we already took the space of states is finite and we can approximate at many solutions without go at a deep sequency but we need to take an algorithm.
 
@@ -18,6 +19,7 @@ Description Of Solution
 
 The solution of the algorithm is various previously we implemented the Breadth First Search BFS and the iterative deepening (ID) in this practice we will resolve with the algorithm Star A that belong at the conjunct of informed search algorithm, the Star A use heuristic functions to take a path toward the goal.
 Heuristic Function
+
 A heuristic function is a function of estimation that determine what node the program should take. The function evaluates a state in order to the less or greater weight be a candidate to take the next step.
 Star A (*A)
 This algorithm is well knowledge in artificial intelligence, the algorithm uses two heuristics function to take the next state. The heuristic function that takes the algorithm is h(m) the minimal path of the actual state with the goal state and the g(m) the minimal path to the actual state with the initial state. Both functions are unknown and we need to estimate an approximate of  this minimal paths.
@@ -35,6 +37,7 @@ hˆ 1(n). - Number of pieces out of place relative to the target state, count th
 hˆ 2(n). – Sum the Manhattan distance. For every piece count the vertical and horizontal distance comparing the initial state and the goal state.
 hˆ 3(n). – Sum of the inverse permutations. Consist in applanate the matrix or table to a vector, and for every piece compare and count the smaller numbers to which we leave, only we can use this function if the goal state has an order.
 Beans . - We will implement a heuristic function that we call diference of pieces, the function sum the absolute differences between the current state boxes and the target state boxes. For example abs(currentS(1,1) - goalS(1,1))+abs(currentS(2,1) - goalS(2,1))+...+abs(currentS(n,n) - goalS(n,n)).
+
 Python
 We use the language Python because this language have a large collection of util libraries, In this exercise a clarity preference in order to use Python is the pass of parameters for Functions because we are pass the heuristic function like a variable.
 Python also is a language applicable and recommendable for the Intelligence Artificial because the syntax helps much in the development.
