@@ -35,7 +35,7 @@ def printSequency(state):
 
 def menu():
     actions = ["l","u","r","d"]
-    nameTxt = "8_pieces/case3.txt"
+    nameTxt = "15_pieces/case7.txt"
     initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
     initialState = State(initialTable)
     goalState = State(goalTable)
@@ -43,6 +43,8 @@ def menu():
     functionH = lambda x,y: 1
     while (incise != 0):
         print("MENU DE A STAR")
+        print("Archivo destino:")
+        print(f"{os.path.abspath(os.getcwd())}{nameTxt}")
         print("-------------------------------------")
         print("1. Ingresar documento de texto y cargar.")
         print("2. Resolver con diferencia de tablas.")
@@ -63,7 +65,7 @@ def menu():
         elif(incise == 4):
             functionH = inversePermutation
         elif(incise == 5):
-            functionH = diferenciaDeCasillas
+            functionH = differenceOfPieces
         if (incise >= 2 and incise <= 5):
             init = time.time()
             request, state,counter = AStar(initialState,goalState,actions, functionH)
@@ -73,7 +75,8 @@ def menu():
             print(("" if request else "no ") + "se hallo la ruta al objetivo.")
             print(f"Se expandio {counter} estados.")
             print(f"tiempo de ejecucion f{round(end-init,2)} seg.")
-        input("presione enter para continuar.")
+        if (incise != 0):
+            input("presione enter para continuar.")
 
 menu()
 

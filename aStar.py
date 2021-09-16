@@ -51,7 +51,7 @@ def inversePermutation(state, goalstate):
     return weight
 
 
-def diferenciaDeCasillas(state, goalState):
+def differenceOfPieces(state, goalState):
     rows = len(state.table)
     columns = len(state.table[0])
     weight = 0
