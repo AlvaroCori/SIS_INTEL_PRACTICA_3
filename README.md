@@ -458,13 +458,16 @@ Then the third heucharist (Inverse matrix) is better than the first heucharist (
 
 In the 15-puzzle, the algorithms work irregularly, with a basic initial state it works even better than a 8-puzzle, but with a initial state more complex, the algorithms work for a long time. We wait for 2 hours and it keeps working, so we decided just control it like more than 30 minutes, because it was the time we made the other tests.
 
+#### Memory
+If we see in the tables we can see the impressive difference of states between the Manhattan distance with the other 2 heuristics in both puzzle-8 and puzzle-15 coming to occupy only a 1/5 or a 1/4 of the states in comparison to the heuristics inverse matrix and number of pieces out of place. The Manhattan distance is more optimal in memory.
+
+#### Time
 Despite the long search time, if we add the cases we know their results we can compare that as well as the total states as the total time, the most effective heuristic is the distance Manhattan followed by the differences of pieces being the worst the inverse matrix.
 
-The experiments with the new heucaristic, looks better for the first and the second case, but looks worse for the thrid case. So it can be a better solution for simple cases, but it's not so good for complex cases. 
-
+#### A* Optimal
 Concluding, the A* with the tested heucaristics is not always optimum for get the shortest way, for example, the thrid heucaristic takes up a lot of memory, but the first heucaristic show good results in time but the better heucaristic, is the second. However, when the states are very complex, the algorithms are slow and it doesn't always find the answer.
 
-Beans .- With the new heucaristic, look a little better for simple cases, but it take a long time for complex cases example case 2 and 3 of 15-puzzle, the algoritmh is better than the inverse permutations and the number of pieces out of place but is lower than the Manhattan distance, the algorithm is moderately better to be implemented. 
+Beans .- With the new heucaristic, look a little better for simple cases, but it take a long time for complex cases example case 2 and 3 of 15-puzzle, the algoritmh is better than the inverse matrix and the number of pieces out of place but is lower than the Manhattan distance despite of this the new function is a little better than the  Manhattan distance if we compare the states in tables 15-pieces and in conclusion the heuristic function is moderately better to be admissible and implemented. 
 
 
 Bibliography
